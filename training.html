@@ -289,7 +289,7 @@ h1, h2, h3, h4 {
     padding: 100px 0;
     position: relative;
     overflow: hidden;
-    margin: -40px 0 100px;
+    margin: 0 0 60px;
     border-radius: 30px;
     box-shadow: 0 30px 60px rgba(30, 136, 229, 0.1);
 }
@@ -361,183 +361,392 @@ h1, h2, h3, h4 {
     margin: 0;
 }
 
-/* Training Courses Grid - 2x2 */
-.training-courses {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+/* NEW TRAINING GRID STYLE - Modern Cards */
+.training-programs-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.course-card {
+/* Option 1: Side by side modern cards */
+.training-courses-modern {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.course-card-modern {
     background: white;
-    border-radius: 25px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(30, 136, 229, 0.1);
     display: flex;
     flex-direction: column;
-    height: 100%;
-}
-
-.course-card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 35px 70px rgba(30, 136, 229, 0.15);
-}
-
-.course-image {
-    height: 200px;
-    overflow: hidden;
+    width: 100%;
+    max-width: 550px;
     position: relative;
 }
 
-.course-image img {
+.course-card-modern:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(30, 136, 229, 0.15);
+}
+
+.course-header {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+}
+
+.course-header img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.8s ease;
 }
 
-.course-card:hover .course-image img {
-    transform: scale(1.1);
+.course-card-modern:hover .course-header img {
+    transform: scale(1.05);
 }
 
-.course-card h3 {
+.course-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #1e88e5, #64b5f6);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(30, 136, 229, 0.3);
+}
+
+.course-content {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-title {
     color: #1565c0;
-    font-size: 1.6rem;
-    margin: 30px 30px 20px;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
     font-weight: 700;
-    line-height: 1.4;
+    line-height: 1.3;
 }
 
-/* Eligibility Box */
-.eligibility-box {
+.course-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
     background: #f8fbff;
-    margin: 0 30px 25px;
-    padding: 25px;
-    border-radius: 15px;
+    border-radius: 10px;
     border: 1px solid rgba(30, 136, 229, 0.1);
 }
 
-.eligibility-box h4 {
+.highlight-icon {
     color: #1e88e5;
-    margin-bottom: 20px;
     font-size: 1.2rem;
+    margin-right: 12px;
+    width: 25px;
+    text-align: center;
+}
+
+.highlight-text {
+    color: #555;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.highlight-text strong {
+    color: #1565c0;
+    font-weight: 600;
+}
+
+.course-details-modern {
+    margin-bottom: 25px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(30, 136, 229, 0.1);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    color: #666;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.detail-value {
+    color: #1565c0;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.course-eligibility {
+    background: #f8fbff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(30, 136, 229, 0.1);
+}
+
+.eligibility-title {
+    color: #1e88e5;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
     font-weight: 600;
     display: flex;
     align-items: center;
 }
 
-.eligibility-box h4 i {
+.eligibility-title i {
     margin-right: 10px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
-.eligibility-box ul {
+.eligibility-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.eligibility-box li {
+.eligibility-list li {
     color: #555;
-    margin-bottom: 12px;
-    font-size: 1rem;
-    line-height: 1.5;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    line-height: 1.4;
     display: flex;
     align-items: flex-start;
 }
 
-.eligibility-box li i {
+.eligibility-list li i {
     color: #1e88e5;
-    margin-right: 12px;
+    margin-right: 10px;
     margin-top: 3px;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    flex-shrink: 0;
 }
 
-.eligibility-box li:last-child {
+.eligibility-list li:last-child {
     margin-bottom: 0;
 }
 
-/* Course Details */
-.course-details {
-    margin: 0 30px 30px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
-}
-
-.detail-item {
-    display: flex;
-    align-items: center;
-    padding: 12px 20px;
-    background: #f8fbff;
-    border-radius: 10px;
-    border: 1px solid rgba(30, 136, 229, 0.1);
-    transition: all 0.3s ease;
-}
-
-.detail-item:hover {
-    background: #e3f2fd;
-    transform: translateX(5px);
-}
-
-.detail-item i {
-    color: #1e88e5;
-    font-size: 1.2rem;
-    margin-right: 15px;
-    width: 25px;
-}
-
-.detail-item span {
-    color: #555;
-    font-size: 1rem;
-    line-height: 1.4;
-}
-
-.detail-item strong {
-    color: #1565c0;
-    font-weight: 600;
-}
-
-/* Enroll Button - Fixed at bottom - FIXED ALIGNMENT */
-.enroll-btn-container {
+.enroll-action {
     margin-top: auto;
-    padding: 30px;
-    background: #f8fbff;
+    padding-top: 25px;
     border-top: 1px solid rgba(30, 136, 229, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.enroll-btn {
+.enroll-btn-modern {
     background: linear-gradient(135deg, #1e88e5, #64b5f6);
     color: white;
     border: none;
-    padding: 18px 40px;
-    border-radius: 15px;
-    font-size: 1.1rem;
+    padding: 16px 35px;
+    border-radius: 12px;
+    font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.4s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 12px 25px rgba(30, 136, 229, 0.2);
+    box-shadow: 0 8px 20px rgba(30, 136, 229, 0.2);
+    white-space: nowrap;
+    min-width: 180px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.enroll-btn:hover {
+.enroll-btn-modern:hover {
     background: linear-gradient(135deg, #1565c0, #1e88e5);
     transform: translateY(-3px);
-    box-shadow: 0 20px 35px rgba(30, 136, 229, 0.3);
+    box-shadow: 0 15px 30px rgba(30, 136, 229, 0.3);
 }
 
-.enroll-btn i {
-    margin-right: 12px;
-    font-size: 1.2rem;
+.enroll-btn-modern i {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+/* Alternative Option 2: Cards with side accent */
+.course-card-accent {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(30, 136, 229, 0.1);
+    display: flex;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.course-card-accent::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(to bottom, #1e88e5, #64b5f6);
+}
+
+.course-card-accent:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(30, 136, 229, 0.15);
+}
+
+.course-icon {
+    padding: 30px;
+    background: #f8fbff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+}
+
+.course-icon i {
+    font-size: 3rem;
+    color: #1e88e5;
+    transition: transform 0.4s ease;
+}
+
+.course-card-accent:hover .course-icon i {
+    transform: scale(1.1);
+}
+
+.course-content-accent {
+    padding: 30px;
+    flex-grow: 1;
+}
+
+.course-content-accent h3 {
+    color: #1565c0;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.course-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.feature-tag {
+    background: #f0f7ff;
+    color: #1e88e5;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(30, 136, 229, 0.2);
+}
+
+.course-info {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.course-stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+}
+
+.stat-item i {
+    color: #1e88e5;
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+.stat-item span {
+    color: #555;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.stat-item strong {
+    color: #1565c0;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.course-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(30, 136, 229, 0.1);
+}
+
+.course-price {
+    color: #1565c0;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.course-price span {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.enroll-btn-accent {
+    background: linear-gradient(135deg, #1e88e5, #64b5f6);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+}
+
+.enroll-btn-accent:hover {
+    background: linear-gradient(135deg, #1565c0, #1e88e5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(30, 136, 229, 0.2);
+}
+
+.enroll-btn-accent i {
+    margin-right: 8px;
+    font-size: 1rem;
 }
 
 /* Jobs Section */
@@ -640,16 +849,18 @@ h1, h2, h3, h4 {
     justify-content: center;
     background: linear-gradient(135deg, #4CAF50, #2E7D32);
     color: white;
-    padding: 20px 45px;
+    padding: 18px 40px;
     border-radius: 15px;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
     transition: all 0.4s ease;
     margin: 0 auto 20px;
     display: block;
     text-align: center;
     box-shadow: 0 12px 25px rgba(76, 175, 80, 0.2);
+    white-space: nowrap;
+    min-width: 200px;
 }
 
 .apply-btn:hover {
@@ -660,7 +871,7 @@ h1, h2, h3, h4 {
 
 .apply-btn i {
     margin-right: 12px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 .form-note {
@@ -987,11 +1198,14 @@ h1, h2, h3, h4 {
     }
 }
 
-/* Responsive Design */
+/* Responsive Design - NEW TRAINING GRID */
 @media (max-width: 1200px) {
-    .training-courses,
-    .benefits-grid {
-        max-width: 1000px;
+    .training-courses-modern {
+        justify-content: center;
+    }
+    
+    .course-card-modern {
+        max-width: 500px;
     }
     
     .footer-content {
@@ -1018,12 +1232,9 @@ h1, h2, h3, h4 {
     }
 
     .association-section {
-        margin: -20px 0 80px;
-    }
-
-    .training-courses {
-        grid-template-columns: 1fr;
-        max-width: 600px;
+        margin: 0 0 50px;
+        padding: 80px 0;
+        border-radius: 25px;
     }
 
     .benefits-grid {
@@ -1038,11 +1249,39 @@ h1, h2, h3, h4 {
     .job-card {
         padding: 40px;
     }
+    
+    /* Modern cards responsive */
+    .course-card-modern {
+        max-width: 100%;
+    }
+    
+    .course-highlights {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Side accent cards responsive */
+    .course-card-accent {
+        flex-direction: column;
+    }
+    
+    .course-icon {
+        min-width: 100%;
+        padding: 20px;
+    }
+    
+    .course-icon i {
+        font-size: 2.5rem;
+    }
+    
+    .course-stats {
+        flex-wrap: wrap;
+    }
 }
 
 @media (max-width: 768px) {
     .training-hero {
         border-radius: 0 0 25px 25px;
+        padding: 90px 0 50px;
     }
 
     .training-hero h1 {
@@ -1061,6 +1300,12 @@ h1, h2, h3, h4 {
         font-size: 1.1rem;
     }
 
+    .association-section {
+        margin: 0 15px 40px;
+        padding: 60px 0;
+        border-radius: 20px;
+    }
+
     .association-description {
         padding: 30px 20px;
     }
@@ -1069,18 +1314,30 @@ h1, h2, h3, h4 {
         font-size: 2rem;
     }
 
-    .course-card,
+    .course-content {
+        padding: 25px;
+    }
+    
+    .course-title {
+        font-size: 1.6rem;
+    }
+    
+    .highlight-item {
+        padding: 10px 12px;
+    }
+    
+    .course-eligibility {
+        padding: 15px;
+    }
+    
+    .enroll-btn-modern {
+        padding: 14px 25px;
+        font-size: 0.9rem;
+        min-width: 160px;
+    }
+    
     .benefit-item {
-        padding: 30px;
-    }
-
-    .eligibility-box,
-    .course-details {
-        margin: 0 20px 20px;
-    }
-
-    .enroll-btn-container {
-        padding: 20px;
+        padding: 30px 25px;
     }
 
     .job-card {
@@ -1088,8 +1345,9 @@ h1, h2, h3, h4 {
     }
 
     .apply-btn {
-        padding: 18px 30px;
-        font-size: 1.1rem;
+        padding: 15px 25px;
+        font-size: 0.95rem;
+        min-width: 180px;
     }
 
     .association-badge {
@@ -1123,26 +1381,26 @@ h1, h2, h3, h4 {
         font-size: 1.8rem;
     }
 
+    .association-section {
+        margin: 0 10px 30px;
+        padding: 50px 0;
+        border-radius: 15px;
+    }
+
     .association-badge {
-        padding: 12px 25px;
-        font-size: 1rem;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        flex-direction: column;
+        gap: 8px;
     }
-
-    .course-card h3 {
-        font-size: 1.4rem;
-        margin: 20px 20px 15px;
-    }
-
-    .eligibility-box li {
-        font-size: 0.95rem;
-    }
-
-    .detail-item {
-        padding: 10px 15px;
+    
+    .association-badge i {
+        margin-right: 0;
+        margin-bottom: 5px;
     }
 
     .benefit-item {
-        padding: 30px 20px;
+        padding: 25px 20px;
     }
 
     .benefit-item h4 {
@@ -1152,28 +1410,124 @@ h1, h2, h3, h4 {
     .benefit-item i {
         font-size: 3rem;
     }
+    
+    /* Modern cards mobile */
+    .course-header {
+        height: 150px;
+    }
+    
+    .course-badge {
+        top: 15px;
+        right: 15px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .course-title {
+        font-size: 1.4rem;
+    }
+    
+    .detail-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .enroll-btn-modern {
+        padding: 12px 20px;
+        font-size: 0.85rem;
+        min-width: 150px;
+    }
+    
+    /* Side accent cards mobile */
+    .course-content-accent h3 {
+        font-size: 1.4rem;
+    }
+    
+    .course-features {
+        gap: 10px;
+    }
+    
+    .feature-tag {
+        padding: 5px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .course-actions {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .enroll-btn-accent {
+        align-self: flex-end;
+    }
+    
+    .apply-btn {
+        padding: 14px 20px;
+        font-size: 0.9rem;
+        min-width: 160px;
+    }
 }
 
 @media (max-width: 400px) {
-    .association-badge {
-        flex-direction: column;
-        gap: 10px;
-        padding: 15px;
+    .association-section {
+        margin: 0 5px 20px;
+        padding: 40px 15px;
     }
-
-    .association-badge i {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-
-    .course-card,
-    .benefit-item {
+    
+    .association-description {
         padding: 20px 15px;
     }
-
-    .enroll-btn {
-        padding: 15px 20px;
+    
+    .association-description h2 {
+        font-size: 1.6rem;
+    }
+    
+    .association-description p {
         font-size: 1rem;
+    }
+    
+    .section-title h2 {
+        font-size: 1.6rem;
+    }
+    
+    .section-title p {
+        font-size: 0.95rem;
+    }
+    
+    .course-content {
+        padding: 20px;
+    }
+    
+    .course-title {
+        font-size: 1.3rem;
+    }
+    
+    .enroll-btn-modern {
+        padding: 10px 16px;
+        font-size: 0.8rem;
+        min-width: 140px;
+    }
+    
+    .apply-btn {
+        padding: 12px 18px;
+        font-size: 0.85rem;
+        min-width: 150px;
+    }
+}
+
+/* Very small screens - ensure button stays on one line */
+@media (max-width: 350px) {
+    .enroll-btn-modern {
+        padding: 8px 14px;
+        font-size: 0.75rem;
+        min-width: 130px;
+    }
+    
+    .enroll-btn-modern i,
+    .apply-btn i {
+        margin-right: 6px;
+        font-size: 0.9rem;
     }
 }
     </style>
@@ -1225,7 +1579,7 @@ h1, h2, h3, h4 {
         </div>
     </section>
 
-    <!-- Training Courses Grid -->
+    <!-- Training Courses Grid - NEW MODERN DESIGN -->
     <section class="training-section">
         <div class="container">
             <div class="section-title">
@@ -1233,96 +1587,182 @@ h1, h2, h3, h4 {
                 <p>Choose from our industry-leading healthcare training courses</p>
             </div>
 
-            <div class="training-courses">
-                <!-- Course 1 -->
-                <div class="course-card">
-                    <div class="course-image">
-                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300&q=80" 
-                             alt="Nursing Training Program" 
-                             loading="lazy">
+            <!-- Option 1: Modern Cards -->
+            <div class="training-programs-container">
+                <div class="training-courses-modern">
+                    <!-- Course 1 - Modern Card -->
+                    <div class="course-card-modern">
+                        <div class="course-header">
+                            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300&q=80" 
+                                 alt="Nursing Training Program" 
+                                 loading="lazy">
+                            <div class="course-badge">Refresher Program</div>
+                        </div>
+                        
+                        <div class="course-content">
+                            <h3 class="course-title">10 hours Refresher Program for ANM & GNM</h3>
+                            
+                            <div class="course-highlights">
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-rupee-sign"></i>
+                                    </div>
+                                    <div class="highlight-text">
+                                        <strong>Fee:</strong> Rs 1000
+                                    </div>
+                                </div>
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="highlight-text">
+                                        <strong>Duration:</strong> 10 Hours
+                                    </div>
+                                </div>
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="highlight-text">
+                                        <strong>Batch:</strong> Weekly
+                                    </div>
+                                </div>
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-chalkboard-teacher"></i>
+                                    </div>
+                                    <div class="highlight-text">
+                                        <strong>Mode:</strong> Classroom
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="course-eligibility">
+                                <div class="eligibility-title">
+                                    <i class="fas fa-user-check"></i>
+                                    Eligibility Criteria
+                                </div>
+                                <ul class="eligibility-list">
+                                    <li><i class="fas fa-check-circle"></i> ANM or GNM Qualified</li>
+                                    <li><i class="fas fa-check-circle"></i> Good Communication Skills</li>
+                                    <li><i class="fas fa-check-circle"></i> Valid Nursing Registration</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="enroll-action">
+                                <button class="enroll-btn-modern">
+                                    <i class="fas fa-user-plus"></i> Enroll Now
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <h3>10 hours Refresher Program for ANM & GNM</h3>
                     
-                    <div class="eligibility-box">
-                        <h4><i class="fas fa-user-check"></i> Eligibility:</h4>
-                        <ul>
-                            <li><i class="fas fa-graduation-cap"></i> ANM or GNM Qualified</li>
-                            <li><i class="fas fa-comments"></i> Good Communication Skills</li>
-                            <li><i class="fas fa-certificate"></i> Valid Nursing Registration</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="course-details">
-                        <div class="detail-item">
-                            <i class="fas fa-rupee-sign"></i>
-                            <span><strong>Test & Certification Fee:</strong> Rs 1000</span>
+                    <!-- Course 2 - Modern Card -->
+                    <div class="course-card-modern">
+                        <div class="course-header">
+                            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300&q=80" 
+                                 alt="GDA & HHA Course" 
+                                 loading="lazy">
+                            <div class="course-badge">Comprehensive Course</div>
                         </div>
-                        <div class="detail-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span><strong>Batch:</strong> Weekly (Monday Start)</span>
+                        
+                        <div class="course-content">
+                            <h3 class="course-title">60-90 hours GDA & HHA Course</h3>
+                            
+                            <div class="course-highlights">
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-rupee-sign"></i>
+                                    </div>
+                                    <div class="highlight-text">
+                                        <strong>Course:</strong> Rs 5000
+                                    </div>
+                                </div>
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-certificate"></i>
+                                    </div>
+                                    <div class="highlight-text">
+                                        <strong>Test Fee:</strong> Rs 1000
+                                    </div>
+                                </div>
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="highlight-text">
+                                        <strong>Batch:</strong> Monthly
+                                    </div>
+                                </div>
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="highlight-text">
+                                        <strong>Duration:</strong> 60-90 Hours
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="course-eligibility">
+                                <div class="eligibility-title">
+                                    <i class="fas fa-user-check"></i>
+                                    Eligibility Criteria
+                                </div>
+                                <ul class="eligibility-list">
+                                    <li><i class="fas fa-check-circle"></i> Minimum 10<sup>th</sup> Standard Pass</li>
+                                    <li><i class="fas fa-check-circle"></i> Good Communication Skills</li>
+                                    <li><i class="fas fa-check-circle"></i> Languages: English, Kannada, Regional</li>
+                                    <li><i class="fas fa-check-circle"></i> Service Oriented Nature</li>
+                                    <li><i class="fas fa-check-circle"></i> Quick Learner</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="enroll-action">
+                                <button class="enroll-btn-modern">
+                                    <i class="fas fa-user-plus"></i> Enroll Now
+                                </button>
+                            </div>
                         </div>
-                        <div class="detail-item">
-                            <i class="fas fa-clock"></i>
-                            <span><strong>Duration:</strong> 10 Hours (2 Days)</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                            <span><strong>Mode:</strong> Classroom & Practical</span>
-                        </div>
-                    </div>
-                    
-                    <div class="enroll-btn-container">
-                        <button class="enroll-btn">
-                            <i class="fas fa-user-plus"></i> Enroll Now
-                        </button>
                     </div>
                 </div>
                 
-                <!-- Course 2 -->
-                <div class="course-card">
-                    <div class="course-image">
-                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300&q=80" 
-                             alt="GDA & HHA Course" 
-                             loading="lazy">
+                <!-- Option 2: Side Accent Cards (Alternative Style) 
+                <div class="course-card-accent">
+                    <div class="course-icon">
+                        <i class="fas fa-user-nurse"></i>
                     </div>
-                    <h3>60-90 hours GDA & HHA Course</h3>
-                    
-                    <div class="eligibility-box">
-                        <h4><i class="fas fa-user-check"></i> Eligibility:</h4>
-                        <ul>
-                            <li><i class="fas fa-graduation-cap"></i> Minimum 10<sup>th</sup> Standard Pass</li>
-                            <li><i class="fas fa-comments"></i> Good Communication Skills</li>
-                            <li><i class="fas fa-language"></i> Languages: English, Kannada, and Regional Languages</li>
-                            <li><i class="fas fa-hands-helping"></i> Service Oriented Nature</li>
-                            <li><i class="fas fa-brain"></i> Quick Learner</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="course-details">
-                        <div class="detail-item">
-                            <i class="fas fa-rupee-sign"></i>
-                            <span><strong>Course Cost:</strong> Rs 5000</span>
+                    <div class="course-content-accent">
+                        <h3>10 hours Refresher Program for ANM & GNM</h3>
+                        <div class="course-features">
+                            <span class="feature-tag">Short-term</span>
+                            <span class="feature-tag">Weekly Batches</span>
+                            <span class="feature-tag">Classroom & Practical</span>
                         </div>
-                        <div class="detail-item">
-                            <i class="fas fa-rupee-sign"></i>
-                            <span><strong>Test & Certification Fee:</strong> Rs 1000</span>
+                        <p class="course-info">Enhance your nursing skills with our comprehensive refresher program designed for ANM and GNM qualified professionals.</p>
+                        <div class="course-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>Fee: <strong>Rs 1000</strong></span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: <strong>10 Hours</strong></span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Batch: <strong>Weekly</strong></span>
+                            </div>
                         </div>
-                        <div class="detail-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span><strong>Batch:</strong> Monthly (1st of every month)</span>
+                        <div class="course-actions">
+                            <div class="course-price">Rs 1000 <span>Test & Certification</span></div>
+                            <button class="enroll-btn-accent">
+                                <i class="fas fa-user-plus"></i> Enroll Now
+                            </button>
                         </div>
-                        <div class="detail-item">
-                            <i class="fas fa-clock"></i>
-                            <span><strong>Duration:</strong> 60-90 Hours (3-4 Weeks)</span>
-                        </div>
-                    </div>
-                    
-                    <div class="enroll-btn-container">
-                        <button class="enroll-btn">
-                            <i class="fas fa-user-plus"></i> Enroll Now
-                        </button>
                     </div>
                 </div>
+                -->
             </div>
         </div>
     </section>
@@ -1355,7 +1795,6 @@ h1, h2, h3, h4 {
                     <a href="https://forms.example.com/neocare-jobs" target="_blank" class="apply-btn">
                         <i class="fas fa-external-link-alt"></i> Apply for Jobs
                     </a>
-                   
                     
                     <div class="job-benefits">
                         <h4><i class="fas fa-award"></i> Job Benefits:</h4>
@@ -1489,8 +1928,8 @@ h1, h2, h3, h4 {
                 });
             });
 
-            // Enroll button functionality
-            const enrollButtons = document.querySelectorAll('.enroll-btn');
+            // Enroll button functionality for new design
+            const enrollButtons = document.querySelectorAll('.enroll-btn-modern, .enroll-btn-accent');
             enrollButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     // Create enrollment modal or redirect
@@ -1556,7 +1995,7 @@ h1, h2, h3, h4 {
 
             // Add animation to elements when they come into view
             function animateOnScroll() {
-                const elements = document.querySelectorAll('.course-card, .benefit-item, .job-card, .association-description');
+                const elements = document.querySelectorAll('.course-card-modern, .benefit-item, .job-card, .association-description, .course-card-accent');
                 
                 elements.forEach(element => {
                     const elementTop = element.getBoundingClientRect().top;
@@ -1570,7 +2009,8 @@ h1, h2, h3, h4 {
             }
 
             // Initialize opacity for animation
-            document.querySelectorAll('.course-card, .benefit-item, .job-card, .association-description').forEach(element => {
+            const animatedElements = document.querySelectorAll('.course-card-modern, .benefit-item, .job-card, .association-description, .course-card-accent');
+            animatedElements.forEach(element => {
                 element.style.opacity = '0';
                 element.style.transform = 'translateY(30px)';
                 element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -1582,6 +2022,26 @@ h1, h2, h3, h4 {
             
             // Initial check and scroll listener
             window.addEventListener('scroll', animateOnScroll);
+            
+            // Course card hover effects for modern cards
+            const courseCards = document.querySelectorAll('.course-card-modern');
+            courseCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const badge = this.querySelector('.course-badge');
+                    if (badge) {
+                        badge.style.transform = 'translateY(-2px)';
+                        badge.style.boxShadow = '0 6px 20px rgba(30, 136, 229, 0.4)';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const badge = this.querySelector('.course-badge');
+                    if (badge) {
+                        badge.style.transform = 'translateY(0)';
+                        badge.style.boxShadow = '0 4px 15px rgba(30, 136, 229, 0.3)';
+                    }
+                });
+            });
         });
     </script>
 </body>
